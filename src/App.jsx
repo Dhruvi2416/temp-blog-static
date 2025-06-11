@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import HeroSection from "./components/HeroSection";
+import ServicesSection from "./components/ServicesSection";
+import AboutUsSection from "./components/AboutUsSection";
+import OurProcessSection from "./components/OurProcessSection";
+import TestimonialAndBlogs from "./components/TestimonialAndBlogs";
+import ContactForm from "./components/ContactForm";
+import Footer from "./components/Footer";
+import { useEffect } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const el = document.querySelector(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+
+    const timeout = setTimeout(scrollToHash, 100); 
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <HeroSection />
+      <ServicesSection />
+      <AboutUsSection />
+      <OurProcessSection />
+      <TestimonialAndBlogs />
+      <ContactForm />
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
+
