@@ -41,9 +41,8 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="py-20 px-4 bg-white" id="services">
+    <section className="py-20 px-4 bg-white" id="services"  >
       <div className="max-w-6xl mx-auto">
-        {/* Heading inside container, above grid */}
         <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center lg:text-left">
           Services
         </h2>

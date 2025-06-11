@@ -4,13 +4,13 @@ export default function TestimonialAndBlogs() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const BLOG_API = "http://3.7.81.243:3253/api/blog/";
+  const BLOG_API = "http://3.7.81.243:3253/api/blog?limit=3";
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const res = await fetch(BLOG_API);
-        const { data } = await res.json(); // destructure 'data'
+        const { data } = await res.json();
 
         const validBlogs = data.filter(
           (blog) =>
@@ -20,7 +20,7 @@ export default function TestimonialAndBlogs() {
             "image_url" in blog
         );
 
-        setBlogs(validBlogs.slice(0, 3));
+        setBlogs(validBlogs);
       } catch (err) {
         console.error("Failed to fetch blogs:", err);
       } finally {
@@ -33,14 +33,16 @@ export default function TestimonialAndBlogs() {
 
   return (
     <section
-      id="blogs"
       className=" py-20 px-4 bg-no-repeat "
       style={{
         backgroundImage: "url('/assets/Rectangletestimonial-bg.png')",
       }}
     >
-      <div className="max-w-6xl mx-auto">
-        {/* Testimonials */}
+      <div
+        className="max-w-6xl mx-auto"
+        id="case-studies"
+        style={{ scrollMarginTop: 75 }}
+      >
         <h2 className="text-4xl font-bold mb-12">Testimonials</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
           {[1, 2].map((_, idx) => (
@@ -70,8 +72,11 @@ export default function TestimonialAndBlogs() {
           ))}
         </div>
 
-        {/* Blogs */}
-        <div className="flex items-center justify-between mb-8">
+        <div
+          className="flex items-center justify-between mb-8"
+          id="blogs"
+          style={{ scrollMarginTop: 75 }}
+        >
           <h2 className="text-4xl font-bold">Blogs</h2>
           <a className="text-blue-600 font-medium">View All →</a>
         </div>

@@ -38,7 +38,6 @@ export default function ContactForm() {
     setErrors({});
     setSubmitted(true);
 
-    // ✅ Clear form after successful submit
     setForm({
       firstName: "",
       lastName: "",
@@ -58,7 +57,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="py-16 px-4 max-w-5xl mx-auto" id="contact">
+    <section className="py-16 px-4 max-w-5xl mx-auto" id="contact"  style={{scrollMarginTop:75}}>
       <p className="text-center text-gray-600 max-w-xl mx-auto mb-10">
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
         eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam

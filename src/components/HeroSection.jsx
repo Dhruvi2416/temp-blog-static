@@ -3,16 +3,11 @@ import React from "react";
 const HeroSection = () => {
   return (
     <div
-      className="w-full h-screen bg-no-repeat bg-cover bg-center"
-      style={{
-        backgroundImage: "url('../assets/HeroLayer.png')", // adjust path if needed
-      }}
+      className="w-full h-screen bg-no-repeat bg-cover bg-center "
+      
     >
-      <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        {/* Left Side Content */}
-        <div className="z-10 relative">
-          <img src="../assets/Logo.png" alt="Logo" className="mb-6 w-40" />
-
+      <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center ">
+        <div className="z-10 relative mt-16">
           <h1 className="text-4xl font-bold text-gray-900 leading-tight">
             HOW MUCH <br /> COULD YOU SAVE?
           </h1>
@@ -39,7 +34,6 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right Side is Empty — Illustration is background */}
         <div className="hidden md:block" />
       </div>
     </div>

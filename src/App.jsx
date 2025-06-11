@@ -1,4 +1,5 @@
 
+import { useEffect } from "react";
 import HeroSection from "./components/HeroSection";
 import ServicesSection from "./components/ServicesSection";
 import AboutUsSection from "./components/AboutUsSection";
@@ -6,7 +7,7 @@ import OurProcessSection from "./components/OurProcessSection";
 import TestimonialAndBlogs from "./components/TestimonialAndBlogs";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
-import { useEffect } from "react";
+import Navbar from "./components/Navbar";
 
 function App() {
   useEffect(() => {
@@ -27,7 +28,15 @@ function App() {
 
   return (
     <div>
-      <HeroSection />
+      
+      <div
+        className="bg-no-repeat bg-cover bg-top"
+        style={{ backgroundImage: "url('../assets/HeroLayer.png')" }}
+      >
+        <Navbar />
+        <HeroSection />
+      </div>
+     
       <ServicesSection />
       <AboutUsSection />
       <OurProcessSection />
@@ -35,6 +44,7 @@ function App() {
       <ContactForm />
       <Footer />
     </div>
+
   );
 }
 
